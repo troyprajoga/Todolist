@@ -2,18 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
-  font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
-
 body {
   background: #333;
   color: hsl(200, 100%, 90%);
   max-width: 400px;
   padding: 1rem;
   margin: 0 auto;
+}
+
+.content {
+  background-color: grey;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-radius: 0.5em;
 }
 
 .new-item-form {
@@ -28,14 +37,31 @@ body {
   gap: 0.1rem;
 }
 
-.btn {
-  background: hsl(200, 100%, 50%, 0.1);
-  border: 1px solid hsl(200, 100%, 50%);
-  color: hsl(200, 100%, 50%);
-  padding: 0.25em 0.5em;
+.filter-label {
+  background-color: grey;
+  border: 2px solid white;
   border-radius: 0.25em;
+}
+
+.todo {
+  justify-content: center;
+  display: flex;
+  border: 2px solid rgba(0, 110, 235, 1);
+}
+.btn {
+  border: none;
   cursor: pointer;
   outline: none;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  color: #fff;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
 }
 
 .btn:hover,
@@ -43,10 +69,38 @@ body {
   background: hsl(200, 100%, 50%, 0.2);
 }
 
+.btn.btn-edit {
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  border: none;
+
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 51, 102, 1) 0%,
+    rgba(0, 51, 102, 0.5) 100%
+  );
+  color: #fff;
+  text-transform: capitalize;
+  transform: translate(0, 15%);
+}
+
 .btn.btn-danger {
-  background: hsl(0, 100%, 40%, 0.1);
-  border: 1px solid hsl(0, 100%, 40%);
-  color: hsl(0, 100%, 40%);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  border: none;
+
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 0, 0, 0.7) 100%
+  );
+  color: #fff;
+  text-transform: capitalize;
+  transform: translate(0, 15%);
 }
 
 .btn.btn-danger:hover,
@@ -74,10 +128,11 @@ body {
 }
 
 .list {
-  margin: 0;
-  padding: 0;
-  margin-left: 1rem;
-  list-style: none;
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
 }
 
 .list li:has(input:checked) label {
@@ -87,7 +142,8 @@ body {
 .list {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  text-align: center;
+  justify-content: center;
 }
 
 .list li {
